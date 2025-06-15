@@ -1,20 +1,36 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kuis Multimedia</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kuis Multimedia Kelas 10</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Kuis Multimedia Kelas 10</h1>
-    <div id="question-container">
-      <p id="question">Pertanyaan akan muncul di sini</p>
-      <div id="answer-buttons" class="btn-group"></div>
-    </div>
+  <!-- Halaman Identitas -->
+  <div class="container" id="form-container">
+    <h1>Kuis Multimedia Interaktif</h1>
+    <p>Silakan isi identitas Anda:</p>
+    <input type="text" id="nama" placeholder="Nama Lengkap">
+    <input type="text" id="kelas" placeholder="Kelas">
+    <button onclick="masukKuis()">Mulai Kuis</button>
+  </div>
+
+  <!-- Halaman Kuis -->
+  <div class="container hide" id="quiz-container">
+    <h2 id="question-number"></h2>
+    <p id="question">Pertanyaan muncul di sini</p>
+    <div id="answer-buttons" class="btn-group"></div>
     <button id="next-btn">Selanjutnya</button>
     <p id="score">Skor: 0</p>
+  </div>
+
+  <!-- Hasil Akhir -->
+  <div class="container hide" id="result-container">
+    <h2>Kuis Selesai!</h2>
+    <p id="final-identity"></p>
+    <p id="final-score"></p>
+    <button onclick="startQuiz()">Coba Lagi</button>
   </div>
 
   <script src="script.js"></script>
