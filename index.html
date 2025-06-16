@@ -3,33 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kuis Multimedia Kelas 10</title>
+  <title>Kuis Jaringan Komputer</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Halaman Identitas -->
+  <!-- Form Identitas -->
   <div class="container" id="form-container">
-    <h1>Kuis Multimedia Interaktif</h1>
-    <p>Silakan isi identitas Anda:</p>
+    <h1>Kuis Jaringan Komputer</h1>
+    <p>Masukkan identitas Anda:</p>
     <input type="text" id="nama" placeholder="Nama Lengkap">
     <input type="text" id="kelas" placeholder="Kelas">
     <button onclick="masukKuis()">Mulai Kuis</button>
   </div>
 
-  <!-- Halaman Kuis -->
+  <!-- Kuis -->
   <div class="container hide" id="quiz-container">
     <h2 id="question-number"></h2>
-    <p id="question">Pertanyaan muncul di sini</p>
+    <p id="question" class="question-text"></p>
     <div id="answer-buttons" class="btn-group"></div>
     <button id="next-btn">Selanjutnya</button>
     <p id="score">Skor: 0</p>
   </div>
 
-  <!-- Hasil Akhir -->
+  <!-- Hasil -->
   <div class="container hide" id="result-container">
     <h2>Kuis Selesai!</h2>
     <p id="final-identity"></p>
     <p id="final-score"></p>
+    <div id="stars"></div>
     <button onclick="startQuiz()">Coba Lagi</button>
   </div>
 
