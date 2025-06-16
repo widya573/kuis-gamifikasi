@@ -1,92 +1,92 @@
-let questions = [
+const questions = [
   {
-    question: "Apa itu multimedia?",
+    question: "Apa fungsi dari kabel twisted pair dalam jaringan?",
     answers: [
-      { text: "Penggabungan teks, gambar, suara, dan video", correct: true },
-      { text: "Media cetak saja", correct: false },
-      { text: "Hanya video", correct: false },
-      { text: "Hanya animasi", correct: false }
+      { text: "Mengurangi interferensi", correct: true },
+      { text: "Meningkatkan suara", correct: false },
+      { text: "Menambah daya listrik", correct: false },
+      { text: "Menyimpan data", correct: false }
     ]
   },
   {
-    question: "Jenis perangkat lunak untuk editing video adalah?",
+    question: "Topologi yang semua perangkat terhubung ke satu kabel utama adalah?",
     answers: [
-      { text: "Adobe Premiere Pro", correct: true },
-      { text: "Microsoft Excel", correct: false },
-      { text: "CorelDRAW", correct: false },
-      { text: "Photoshop", correct: false }
+      { text: "Bus", correct: true },
+      { text: "Star", correct: false },
+      { text: "Ring", correct: false },
+      { text: "Mesh", correct: false }
     ]
   },
   {
-    question: "Format video populer adalah?",
+    question: "Kabel yang paling tahan gangguan elektromagnetik adalah?",
     answers: [
-      { text: ".mp4", correct: true },
-      { text: ".docx", correct: false },
-      { text: ".ppt", correct: false },
-      { text: ".mp3", correct: false }
+      { text: "Fiber Optic", correct: true },
+      { text: "UTP", correct: false },
+      { text: "STP", correct: false },
+      { text: "Coaxial", correct: false }
     ]
   },
   {
-    question: "Apa fungsi storyboard dalam produksi video?",
+    question: "Topologi yang menggunakan perangkat pusat (hub/switch)?",
     answers: [
-      { text: "Merencanakan adegan", correct: true },
-      { text: "Mengedit suara", correct: false },
-      { text: "Mengatur pencahayaan", correct: false },
-      { text: "Memperbesar resolusi", correct: false }
+      { text: "Star", correct: true },
+      { text: "Bus", correct: false },
+      { text: "Ring", correct: false },
+      { text: "Tree", correct: false }
     ]
   },
   {
-    question: "Resolusi video Full HD adalah?",
+    question: "Apa itu RJ45?",
     answers: [
-      { text: "1920x1080", correct: true },
-      { text: "800x600", correct: false },
-      { text: "1024x768", correct: false },
-      { text: "1280x720", correct: false }
+      { text: "Konektor jaringan", correct: true },
+      { text: "Protokol data", correct: false },
+      { text: "Jenis topologi", correct: false },
+      { text: "Jenis server", correct: false }
     ]
   },
   {
-    question: "Software open source untuk edit video?",
+    question: "Kabel UTP biasanya memiliki berapa pasang kabel?",
     answers: [
-      { text: "Shotcut", correct: true },
-      { text: "MS Word", correct: false },
-      { text: "Windows Media Player", correct: false },
-      { text: "Excel", correct: false }
+      { text: "4 pasang", correct: true },
+      { text: "2 pasang", correct: false },
+      { text: "6 pasang", correct: false },
+      { text: "8 pasang", correct: false }
     ]
   },
   {
-    question: "FPS adalah singkatan dari?",
+    question: "Topologi yang mahal tapi sangat handal?",
     answers: [
-      { text: "Frame Per Second", correct: true },
-      { text: "Fast Print Setting", correct: false },
-      { text: "Film Picture Sound", correct: false },
-      { text: "Format Pixel Shape", correct: false }
+      { text: "Mesh", correct: true },
+      { text: "Star", correct: false },
+      { text: "Bus", correct: false },
+      { text: "Ring", correct: false }
     ]
   },
   {
-    question: "Aplikasi yang digunakan untuk animasi 2D?",
+    question: "Apa kepanjangan dari UTP?",
     answers: [
-      { text: "Adobe Animate", correct: true },
-      { text: "Google Chrome", correct: false },
-      { text: "Excel", correct: false },
-      { text: "Winamp", correct: false }
+      { text: "Unshielded Twisted Pair", correct: true },
+      { text: "Universal Type Port", correct: false },
+      { text: "Unit Transfer Protocol", correct: false },
+      { text: "Unstable Transfer Point", correct: false }
     ]
   },
   {
-    question: "Suara dalam multimedia disebut?",
+    question: "Kabel yang cocok untuk jaringan luar ruangan?",
     answers: [
-      { text: "Audio", correct: true },
-      { text: "Video", correct: false },
-      { text: "Teks", correct: false },
-      { text: "Frame", correct: false }
+      { text: "Fiber Optic", correct: true },
+      { text: "UTP", correct: false },
+      { text: "STP", correct: false },
+      { text: "Flat Cable", correct: false }
     ]
   },
   {
-    question: "Multimedia interaktif memerlukan?",
+    question: "Topologi yang tiap perangkat punya dua koneksi?",
     answers: [
-      { text: "Partisipasi pengguna", correct: true },
-      { text: "Hanya tampilan gambar", correct: false },
-      { text: "Buku cetak", correct: false },
-      { text: "Printer", correct: false }
+      { text: "Ring", correct: true },
+      { text: "Bus", correct: false },
+      { text: "Star", correct: false },
+      { text: "Hybrid", correct: false }
     ]
   }
 ];
@@ -96,7 +96,6 @@ let score = 0;
 let namaSiswa = '';
 let kelasSiswa = '';
 
-// Elemen
 const questionNumber = document.getElementById('question-number');
 const questionElement = document.getElementById('question');
 const answerButtons = document.getElementById('answer-buttons');
@@ -107,12 +106,13 @@ const quizContainer = document.getElementById('quiz-container');
 const resultContainer = document.getElementById('result-container');
 const finalIdentity = document.getElementById('final-identity');
 const finalScore = document.getElementById('final-score');
+const starsContainer = document.getElementById('stars');
 
 function masukKuis() {
   const nama = document.getElementById('nama').value.trim();
   const kelas = document.getElementById('kelas').value.trim();
 
-  if (nama === '' || kelas === '') {
+  if (!nama || !kelas) {
     alert('Nama dan kelas wajib diisi!');
     return;
   }
@@ -122,7 +122,6 @@ function masukKuis() {
 
   formContainer.classList.add('hide');
   quizContainer.classList.remove('hide');
-
   startQuiz();
 }
 
@@ -130,6 +129,7 @@ function startQuiz() {
   currentQuestionIndex = 0;
   score = 0;
   nextButton.innerText = 'Selanjutnya';
+  shuffleArray(questions);
   showQuestion();
 }
 
@@ -139,7 +139,10 @@ function showQuestion() {
   questionNumber.innerText = `Soal ${currentQuestionIndex + 1} dari ${questions.length}`;
   questionElement.innerText = currentQuestion.question;
 
-  currentQuestion.answers.forEach(answer => {
+  let shuffledAnswers = [...currentQuestion.answers];
+  shuffleArray(shuffledAnswers);
+
+  shuffledAnswers.forEach(answer => {
     const button = document.createElement('button');
     button.innerText = answer.text;
     button.classList.add('btn');
@@ -161,10 +164,7 @@ function selectAnswer(button, correct) {
     button.style.backgroundColor = '#e74c3c';
   }
 
-  Array.from(answerButtons.children).forEach(btn => {
-    btn.disabled = true;
-  });
-
+  Array.from(answerButtons.children).forEach(btn => btn.disabled = true);
   nextButton.style.display = 'inline-block';
   scoreText.innerText = `Skor: ${score}`;
 }
@@ -181,6 +181,15 @@ nextButton.addEventListener('click', () => {
 function showResult() {
   quizContainer.classList.add('hide');
   resultContainer.classList.remove('hide');
+
   finalIdentity.innerHTML = `Nama: <strong>${namaSiswa}</strong><br>Kelas: <strong>${kelasSiswa}</strong>`;
   finalScore.innerText = `Skor akhir kamu: ${score} dari ${questions.length}`;
+  starsContainer.innerHTML = '⭐'.repeat(score >= 9 ? 5 : score >= 7 ? 4 : score >= 5 ? 3 : score >= 3 ? 2 : 1);
+}
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
 }
